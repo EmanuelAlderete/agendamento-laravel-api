@@ -58,7 +58,7 @@ class ServiceTest extends TestCase
 
     public function test_common_user_cannot_create_service(): void
     {
-        $professional_user = User::factory()->create(['type' => 'user']);
+        $common_user = User::factory()->create(['type' => 'user']);
 
         $payload = [
             'name' => 'Test Service',
@@ -66,7 +66,7 @@ class ServiceTest extends TestCase
             'duration_minutes' => 60,
         ];
 
-        $this->actingAs($professional_user)
+        $this->actingAs($common_user)
             ->postJson('/api/services', $payload)
             ->assertStatus(403);
     }
