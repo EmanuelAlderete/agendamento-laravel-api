@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -20,6 +23,8 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Service::class);
+
         $request->validate([
             "name" => "required|string|max:255",
             "price" => "required|numeric|min:0",
