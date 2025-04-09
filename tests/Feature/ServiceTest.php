@@ -80,7 +80,7 @@ class ServiceTest extends TestCase
         ];
 
         $this->postJson('/api/services', $payload)
-            ->assertStatus(403);
+            ->assertStatus(401);
     }
 
     // TODO: Add tests for service retrieval, update, and deletion
