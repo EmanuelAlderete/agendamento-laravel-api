@@ -24,7 +24,7 @@ class ServiceTest extends TestCase
         ];
 
         $this->actingAs($professional_user)
-            ->postJson('/services', $payload)
+            ->postJson('/api/services', $payload)
             ->assertCreated()
             ->assertJson([
                 'data' => [
