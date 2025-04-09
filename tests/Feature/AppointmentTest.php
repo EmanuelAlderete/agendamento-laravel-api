@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Schedule;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -18,7 +19,7 @@ class AppointmentTest extends TestCase
     public function test_user_can_make_an_appointment(): void
     {
         $user = User::factory()->create(['type' => 'user']);
-        $professional = User::factory()->create(['type' => 'professional']);
+        $professional = User::factory()->has(Schedule::factory()->count(2))->create(['type' => 'professional']);
         $service = Service::factory()->create(['professional_id' => $professional->id]);
 
         $payload = [
