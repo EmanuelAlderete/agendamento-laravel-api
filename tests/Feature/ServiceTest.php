@@ -53,7 +53,6 @@ class ServiceTest extends TestCase
         $this->actingAs($professional_user)
             ->postJson('/api/services', $payload)
             ->assertStatus(422);
-
     }
 
     public function test_common_user_cannot_create_service(): void
@@ -84,18 +83,9 @@ class ServiceTest extends TestCase
     }
 
     // TODO: Add tests for service retrieval, update, and deletion
-    public function test_service_creation_returns_correct_json_structure(): void
-    {
+    public function test_service_creation_returns_correct_json_structure(): void {}
 
-    }
+    public function test_professional_can_update_service(): void {}
 
-    public function test_professional_can_update_service(): void
-    {
-
-    }
-
-    public function test_professional_can_delete_own_service(): void
-    {
-
-    }
+    public function test_professional_can_delete_own_service(): void {}
 }

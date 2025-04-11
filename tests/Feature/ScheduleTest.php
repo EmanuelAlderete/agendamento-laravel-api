@@ -16,10 +16,7 @@ class ScheduleTest extends TestCase
         $user = User::factory()->create(['type' => 'professional']);
         $this->actingAs($user)
             ->post('/api/schedules', [
-<<<<<<< HEAD
                 'professional_id' => $user->id,
-=======
->>>>>>> 1ee288d17eaf4f4557c0420b52613362ea009dc3
                 'weekday' => 1,
                 'start_time' => '12:00:00',
                 'end_time' => '20:00:00',
@@ -60,11 +57,7 @@ class ScheduleTest extends TestCase
     public function test_fails_create_when_missing_required_field(): void
     {
         /** @var \App\Models\User $user */
-<<<<<<< HEAD
         $user = User::factory()->create(['type' => 'professional']);
-=======
-        $user = User::factory()->create(['type' => 'user']);
->>>>>>> 1ee288d17eaf4f4557c0420b52613362ea009dc3
 
         $this->actingAs($user)
             ->postJson('/api/schedules', [])
